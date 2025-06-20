@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amazon Sign-In</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container, .alert {
+      background-color: white;
+      padding: 30px 40px;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 350px;
+      border-radius: 5px;
+    }
+
+    .container h1 {
+      font-weight: normal;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #a6a6a6;
+      border-radius: 3px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #f0c14b;
+      border: 1px solid #a88734;
+      border-radius: 3px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
+    .alert {
+      display: none;
+      text-align: center;
+    }
+
+    .alert h2 {
+      color: red;
+      font-size: 24px;
+    }
+
+    .alert p {
+      margin-top: 10px;
+    }
+
+    .reload-btn {
+      margin-top: 20px;
+      background-color: #d9534f;
+      color: white;
+    }
+
+    .reload-btn:hover {
+      background-color: #c9302c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="loginBox">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon">
+    </div>
+    <h1>Sign-In</h1>
+    <form id="loginForm">
+      <div class="form-group">
+        <input type="text" placeholder="Email or mobile phone number" required>
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Amazon password" required>
+      </div>
+      <button type="submit">Sign-In</button>
+    </form>
+  </div>
+
+  <div class="alert container" id="alertBox">
+    <h2>🚨 You have been phished!</h2>
+    <p>This was a <strong>simulated phishing page</strong> for training purposes only.</p>
+    <p>✅ Always check the URL and never enter credentials on suspicious pages.</p>
+    <button class="reload-btn" onclick="location.reload()">Try Again</button>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const loginBox = document.getElementById('loginBox');
+    const alertBox = document.getElementById('alertBox');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      loginBox.style.display = 'none';
+      alertBox.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
